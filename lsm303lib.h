@@ -215,7 +215,7 @@ typedef struct
 
 
 //dafruit_LSM303_Accel_Unified : public Adafruit_Sensor
-class LSM303Accelerometer : Firmware_I2C
+class LSM303Accelerometer : public Firmware_I2C
 {
 public:
     LSM303Accelerometer(char *device = (char*)FirmwareI2CDeviceses::i2c_0, unsigned char address = Lsm303AddressAccelerometer, int sensorID = -1);

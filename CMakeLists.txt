@@ -18,7 +18,7 @@ add_library(lsm303lib SHARED ${LSM303_SOURCE} ${LSM303_HEADERS})
 target_link_libraries(lsm303lib firmware_i2c)
 
 set_target_properties(lsm303lib PROPERTIES
-  VERSION 1.0.0
+  VERSION 1.0.1
   SOVERSION 1
 )
 
