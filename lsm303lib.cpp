@@ -132,6 +132,8 @@ int LSM303Accelerometer::read()
     char zlo = buffer[4];
     char zhi = buffer[5];
 
+    std::cout << buffer[0] << " " << buffer[1] << " " << buffer[2] << " " << buffer[3] << " " << buffer[4] << " " << buffer[5] << std::endl;
+
     raw.x = (unsigned int)(xlo | (xhi << 8)) >> 4;
     raw.y = (unsigned int)(ylo | (yhi << 8)) >> 4;
     raw.z = (unsigned int)(zlo | (zhi << 8)) >> 4;
