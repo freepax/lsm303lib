@@ -46,7 +46,7 @@ LSM303Accelerometer::LSM303Accelerometer(char *device, unsigned char address, in
 int LSM303Accelerometer::init()
 {
     /// write controll reg A to address 0x57
-    unsigned char buffer[2] = { 0x57, LSM303_REGISTER_ACCEL_CTRL_REG1_A };
+    unsigned char buffer[2] = { LSM303_REGISTER_ACCEL_CTRL_REG1_A, 0x57};
 
     /// write start address to device
     int status = writeData(buffer, 2);
