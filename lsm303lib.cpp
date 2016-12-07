@@ -153,24 +153,7 @@ int LSM303Accelerometer::getEvent(sensors_event_t *event)
     unsigned char buffer[6];
     memset(buffer, 0, 6);
 
-    int status = readData(buffer, 6);
-    if (status < 0) {
-        std::cerr << __func__ << " readData failed with error " << status << std::endl;
-        return -1;
-    }
-
-    float SENSORS_GRAVITY_STANDARD = 9.81f;
-
-    char xlo = buffer[0];
-    char xhi = buffer[1];
-    char ylo = buffer[2];
-    char yhi = buffer[3];
-    char zlo = buffer[4];
-    char zhi = buffer[5];
-
-    accelData.x = (short)((unsigned int)xlo | ((unsigned int)xhi << 8)) >> 4;
-    accelData.y = (short)((unsigned int)ylo | ((unsigned int)yhi << 8)) >> 4;
-    accelData.z = (short)((unsigned int)zlo | ((unsigned int)zhi << 8)) >> 4;
+    read();
 
     event->version          = sizeof(sensors_event_t);
     event->sensor_id        = _sensorID;
