@@ -241,6 +241,7 @@ int LSM303Magnetometer::getEvent(sensor_event_t *event) {
 
         char reg_mg = read_register(LSM303RegisterMagSRReg_Mg);
         if (!(reg_mg & 0x1)) {
+            printf("%s read_register did not return expected value 0x1 (0x%x)\n", __func__, reg_mg);
             return -1;
         }
 
