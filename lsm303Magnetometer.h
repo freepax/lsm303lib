@@ -58,7 +58,7 @@ typedef struct lsm303MagData_s
 
 
 /// sensor data at read time
-typedef struct sensor_event_s {
+typedef struct magnetic_event_s {
     int                 version;                            /// must be sizeof(struct sensors_event_t)
     int                 sensor_id;                          /// unique sensor identifier
     struct timeval      timestamp;                          /// time is in milliseconds

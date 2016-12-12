@@ -65,7 +65,7 @@ typedef struct accel_vector_s {
 } accel_vector_t;
 
 /// sensor data at read time
-typedef struct sensor_event_s {
+typedef struct accel_event_s {
     int                 version;                            /**< must be sizeof(struct sensors_event_t) */
     int                 sensor_id;                          /**< unique sensor identifier */
     struct timeval      timestamp;                          /**< time is in milliseconds */
