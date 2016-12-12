@@ -169,12 +169,12 @@ int LSM303Accelerometer::read()
  *
  * @return                          zero on success, negative error value on failure
  */
-int LSM303Accelerometer::getEvent(sensor_event_t *event)
+int LSM303Accelerometer::getEvent(accel_event_t *event)
 {
     unsigned char buffer[6];
 
     /// clear data buffers
-    memset(event, 0, sizeof(sensor_event_t));
+    memset(event, 0, sizeof(accel_event_t));
     memset(buffer, 0, 6);
 
     /// read device
@@ -190,7 +190,7 @@ int LSM303Accelerometer::getEvent(sensor_event_t *event)
         return -2;
     }
 
-    event->version          = sizeof(sensor_event_t);
+    event->version          = sizeof(accel_event_t);
     event->acceleration.x   = (float)raw.x * lsm303Accel_MG_LSB * SensorGravityEarth;
     event->acceleration.y   = (float)raw.y * lsm303Accel_MG_LSB * SensorGravityEarth;
     event->acceleration.z   = (float)raw.z * lsm303Accel_MG_LSB * SensorGravityEarth;

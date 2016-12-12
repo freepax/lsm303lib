@@ -70,7 +70,7 @@ typedef struct sensor_event_s {
     int                 sensor_id;                          /**< unique sensor identifier */
     struct timeval      timestamp;                          /**< time is in milliseconds */
     accel_vector_t      acceleration;                       /**< acceleration values are in meter per second per second (m/s^2) */
-} sensor_event_t;
+} accel_event_t;
 
 
 class LSM303Accelerometer : public Firmware_I2C
@@ -80,7 +80,7 @@ public:
 
     int                 init(void);
     int                 getRegister(char reg, char *value);
-    int                 getEvent(sensor_event_t*);
+    int                 getEvent(accel_event_t*);
 
 private:
     int                 write_byte(char reg, char value);
