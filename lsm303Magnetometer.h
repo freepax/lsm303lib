@@ -63,7 +63,7 @@ typedef struct sensor_event_s {
     int                 sensor_id;                          /// unique sensor identifier
     struct timeval      timestamp;                          /// time is in milliseconds
     lsm303MagData_t     magnetic;                           /// acceleration values are in meter per second per second (m/ss)
-} sensor_event_t;
+} magnetic_event_t;
 
 
 /**
@@ -78,7 +78,7 @@ public:
     void    enableAutoRange(bool enable);
     int     setGain(char gain);
     int     setRate(char rate);
-    int     getEvent(sensor_event_t*);
+    int     getEvent(magnetic_event_t*);
 
     lsm303MagData_t     raw;     // Last read magnetometer data will be available here
     char                mGain;

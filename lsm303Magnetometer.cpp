@@ -231,11 +231,11 @@ int LSM303Magnetometer::setRate(char rate)
  * @param event
  * @return
  */
-int LSM303Magnetometer::getEvent(sensor_event_t *event) {
+int LSM303Magnetometer::getEvent(magnetic_event_t *event) {
     bool readingValid = false;
 
     /* Clear the event */
-    memset(event, 0, sizeof(sensor_event_t));
+    memset(event, 0, sizeof(magnetic_event_t));
 
     while(!readingValid) {
 
