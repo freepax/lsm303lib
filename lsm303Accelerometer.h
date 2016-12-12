@@ -5,7 +5,7 @@
 #include <firmware_i2c.h>
 
 
-const int Lsm303AddressMagnetometer    =   0x19;
+const int Lsm303AddressAccelerometer    =   0x19;
 
 /// Pysical constants
 const float SensorGravityEarth                          =   9.80665f;
@@ -76,7 +76,7 @@ typedef struct sensor_event_s {
 class LSM303Accelerometer : public Firmware_I2C
 {
 public:
-    LSM303Accelerometer(char *device = (char*)FirmwareI2CDeviceses::i2c_0, unsigned char address = Lsm303AddressMagnetometer);
+    LSM303Accelerometer(char *device = (char*)FirmwareI2CDeviceses::i2c_0, unsigned char address = Lsm303AddressAccelerometer);
 
     int                 init(void);
     int                 getRegister(char reg, char *value);
