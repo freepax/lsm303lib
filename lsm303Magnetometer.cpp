@@ -257,7 +257,7 @@ int LSM303Magnetometer::getEvent(magnetic_event_t *event) {
             readingValid = true;
         }
         else {
-            printf("x : %d y : %d z : %d\n", raw.x, raw.y, raw.z);
+            printf("%s: x : %d y : %d z : %d gain %d\n", __func__, raw.x, raw.y, raw.z, mGain);
 
             /* Check if the sensor is saturating or not */
             if ((raw.x >= 2040) | (raw.x <= -2040) | (raw.y >= 2040) | (raw.y <= -2040) | (raw.z >= 2040) | (raw.z <= -2040)) {
