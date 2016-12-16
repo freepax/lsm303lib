@@ -93,28 +93,16 @@ int LSM303Accelerometer::init()
 
 int LSM303Accelerometer::getRegister(char reg, char *value)
 {
-    unsigned char data[1] = { reg };
-
     /// set value to zero - by default
     *value = 0x00;
 
-    /// write register we will read to device
-    int status = writeData(data, 1);
+    int status = readRegister(reg, value);
     if (status < 0) {
-        std::cerr << __func__ << ":" << __LINE__ << " write failed " << status << std::endl;
+        std::cerr << __func__ << ":" << __LINE__ << " Firmware_I2C::readRegister failed with error " << status << std::endl;
         return -1;
     }
 
-    /// clear data buffer
-    memset(data, 0, 1);
-
-    status = readData(data, 1);
-    if (status < 0) {
-        std::cerr << __func__ << ":" << __LINE__ << " read failed " << status << std::endl;
-        return -2;
-    }
-
-    *value = data[0];
+    *value = (char)status;
 
     return 0;
 
