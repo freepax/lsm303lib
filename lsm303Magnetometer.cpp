@@ -254,9 +254,11 @@ int LSM303Magnetometer::getEvent(magnetic_event_t *event) {
 
         /* Make sure the sensor isn't saturating if auto-ranging is enabled */
         if (!autoRangeEnabled) {
+            printf("auto range disabled\n");
             readingValid = true;
         }
         else {
+            printf("auto range enabled\n");
             printf("%s: x : %d y : %d z : %d gain %d\n", __func__, raw.x, raw.y, raw.z, mGain);
 
             /* Check if the sensor is saturating or not */
